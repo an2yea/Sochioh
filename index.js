@@ -7,16 +7,27 @@ const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 const port = 8000;
 const db = require("./config/mongoose");
+//used for session cookie
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport-local-strategy");
 
 //Cookie doesn't get lost on creating another session
 const MongoStore = require("connect-mongo")(session);
+const sassMiddleware = require("node-sass-middleware");
 // const server = http.createServer();
 //Setting up Cookie parser
 app.use(cookieParser());
 
+app.use(
+  sassMiddleware({
+    src: "./assets/css",
+    dest: "./assets/scss",
+    debug: true,
+    outputStyle: "extended",
+    prefix: "/css",
+  })
+);
 app.use(express.urlencoded());
 
 app.use(expressLayouts);

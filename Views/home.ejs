@@ -7,5 +7,18 @@
                 <input type="submit" value="Post">
                 </textarea
     >
+    <input type="submit" value="Post" />
   </form>
+  <div id="posts-container">
+    <ul>
+      <% for ( post of post_list) {%>
+      <p>
+        <li><%= post.content %></li>
+        <br />
+        <small> <%= post.user.name %> </small>
+      </p>
+
+      <% } %>
+    </ul>
+  </div>
 </section>
