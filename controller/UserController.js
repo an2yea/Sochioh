@@ -1,25 +1,32 @@
 const User = require("../modules/user");
 
 module.exports.profile = function (req, res) {
-  //   return res.render("profile"); // Works ? haan still loading :(, o
-  return res.send("hello profile page");
+  return res.render("profile", {
+    title: "User Profile",
+  }); // Works ? haan still loading :(, o
+  //return res.send("hello profile page");
 };
 module.exports.signin = function (req, res) {
   //   res.render("signin", { //.. shouldn't we return here ?
   //     title: "Sign In !!",
   //   });
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   console.log("signin controller recached ");
-  //   return res.redirect("/users/profile");
-  res.render("signin", {
+  return res.render("signin", {
     title: "Sign in",
   });
 };
 
 module.exports.signup = function (req, res) {
+  if (req.isAuthenticated()) {
+    return res.redirect("/users/profile");
+  }
   return res.render("signup", {
     title: "Sign Up !",
   });
-  return res.redirect("/");
+  //return res.redirect("/");
 };
 module.exports.create = function (req, res) {
   console.log(req.body.name);
@@ -32,19 +39,15 @@ module.exports.create = function (req, res) {
   console.log("passwords match");
   //   console.log("req body ", req.body);
   User.findOne({ email: req.body.email }, function (err, user) {
-    console.log("loaderd"); // Any luck ?
+    console.log("loaderd");
     if (err) {
       console.log("error in finding user in signing up");
       return;
     }
     // console.log("user :", user);
-    // show me mongodb
-    // why is your code not pring this console statement ??? Only if I knew, nice wait let me check
     // console.log("inside findone");
     // console.log("user : ", user);
 
-    //ek second
-    //ok//purana code comment kardo delete karne ki jagah toh dikh jaayega mujhe bhi error better tareeke se..ok
     if (!user) {
       console.log("User not found so creating a user ");
       User.create(req.body, function (err, user) {
@@ -60,27 +63,32 @@ module.exports.create = function (req, res) {
   });
 };
 
-//sign in and creating user
 module.exports.createSession = function (req, res) {
-  //find user
-  User.findOne({ email: req.body.email }, function (err, user) {
-    if (err) {
-      console.log("Error in signing up");
-    }
-    //handle user found
-    if (user) {
-      if (user.password != req.body.password) {
-        return res.redirect("back");
-      }
-      res.cookie("user_id", user.id);
-      return res.redirect("/users/profile");
-    } else {
-      return res.redirect("back");
-    }
-  });
-
-  //handle mismatching password
-  //create session
-  //handle user not found
+  return res.redirect("/");
 };
-// hwere is the handler for create_seession ????
+//sign in and creating user
+// module.exports.createSession = function (req, res) {
+//   //find user
+//   User.findOne({ email: req.body.email }, function (err, user) {
+//     if (err) {
+//       console.log("Error in signing up");
+//     }
+//     //handle user found
+//     if (user) {
+//         //handle mismatching password
+//       if (user.password != req.body.password) {
+//         return res.redirect("back");
+//       }
+//       //create session
+//       res.cookie("user_id", user.id);
+//       return res.redirect("/users/profile");
+//     } else {  //handle user not found
+//       return res.redirect("back");
+//     }
+//   });
+
+// };
+module.exports.destroySession = function (req, res) {
+  req.logout(); //Passport.js
+  return res.redirect("/");
+};
