@@ -6,4 +6,6 @@ console.log("User router loaded");
 router.use("/sign_in", UserController.signin);
 router.use("/sign_up", UserController.signup);
 
+router.post("/create", UserController.create);
+
 module.exports = router;
