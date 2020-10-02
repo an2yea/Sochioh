@@ -38,7 +38,7 @@ passport.deserializeUser(function (id, done) {
     return done(null, user);
   });
 });
-
+//acts as Middleware
 passport.checkAuthentication = function (req, res, next) {
   //if user is signed in pass on to next function
   if (req.isAuthenticated()) {
