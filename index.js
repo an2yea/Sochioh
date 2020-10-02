@@ -1,13 +1,14 @@
-const http = require("http");
+// const http = require("http");
 const express = require("express");
+const app = express();
 //Cookie parser
 const cookieParser = require("cookie-parser");
-const app = express();
 const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 const port = 8000;
+const db = require("./config/mongoose");
 
-const server = http.createServer();
+// const server = http.createServer();
 //Setting up Cookie parser
 app.use(cookieParser());
 
