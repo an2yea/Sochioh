@@ -7,7 +7,11 @@ console.log("User router loaded");
 router.get("/sign_in", UserController.signin);
 router.get("/sign_up", UserController.signup);
 //Display profile only when logged in
-router.get("/profile", passport.checkAuthentication, UserController.profile);
+router.get(
+  "/profile/:id",
+  passport.checkAuthentication,
+  UserController.profile
+);
 // where is the route /users/porfile ?? //ohh i see that's the problem jjust a sec
 router.post("/create", UserController.create);
 //router.post("/create_session", UserController.createSession);
