@@ -16,8 +16,9 @@ const passportLocal = require("./config/passport-local-strategy");
 //Cookie doesn't get lost on creating another session
 const MongoStore = require("connect-mongo")(session);
 const sassMiddleware = require("node-sass-middleware");
+const flash = require("connect-flash");
+const CustomMiddleware = require("./config/middeware");
 // const server = http.createServer();
-//Setting up Cookie parser
 
 app.use(
   sassMiddleware({
@@ -67,6 +68,8 @@ app.use(passport.session());
 
 app.use(passport.setAuthenticatedUser);
 
+app.use(flash());
+app.use(CustomMiddleware.setFlash);
 app.use("/", require("./router"));
 
 //Express ends request instead of loading and loading
