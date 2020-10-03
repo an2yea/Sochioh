@@ -16,6 +16,7 @@ const UserSchema = new mongoose.Schema({
     required: true,
   },
 });
+// I didn't explicitely create it, did I ? sirf post mein hi toh hai ?haan wait let me see
 
 const User = mongoose.model("User", UserSchema);
 module.exports = User;

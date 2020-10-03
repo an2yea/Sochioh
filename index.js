@@ -1,11 +1,12 @@
 // const http = require("http");
 const express = require("express");
-const app = express();
 //Cookie parser
 const cookieParser = require("cookie-parser");
+const app = express();
+const port = 8000;
 const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
-const port = 8000;
+
 const db = require("./config/mongoose");
 //used for session cookie
 const session = require("express-session");
@@ -17,7 +18,6 @@ const MongoStore = require("connect-mongo")(session);
 const sassMiddleware = require("node-sass-middleware");
 // const server = http.createServer();
 //Setting up Cookie parser
-app.use(cookieParser());
 
 app.use(
   sassMiddleware({
@@ -29,12 +29,13 @@ app.use(
   })
 );
 app.use(express.urlencoded());
+app.use(cookieParser());
+
+app.use(express.static("./assets"));
 
 app.use(expressLayouts);
 app.set("layout extractStyles", true);
 app.set("layout extractScripts", true);
-
-app.use(express.static("./assets"));
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "Views"));
@@ -43,6 +44,7 @@ app.use(
   session({
     name: "sochioh",
     secret: "vnaibrbgr",
+    saveUninitialized: false,
     resave: false,
     cookie: {
       maxAge: 1000 * 60 * 100, //in milliseconds
@@ -62,7 +64,9 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+
 app.use(passport.setAuthenticatedUser);
+
 app.use("/", require("./router"));
 
 //Express ends request instead of loading and loading

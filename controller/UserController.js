@@ -1,15 +1,11 @@
-const User = require("../modules/user");
+const User = require("../models/user");
 
 module.exports.profile = function (req, res) {
   return res.render("profile", {
     title: "User Profile",
-  }); // Works ? haan still loading :(, o
-  //return res.send("hello profile page");
+  });
 };
 module.exports.signin = function (req, res) {
-  //   res.render("signin", { //.. shouldn't we return here ?
-  //     title: "Sign In !!",
-  //   });
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
@@ -33,7 +29,7 @@ module.exports.create = function (req, res) {
   //todo later
   console.log("create controller reached ");
   if (req.body.password != req.body.confirm_password) {
-    return res.redirect("/");
+    return res.redirect("back");
   }
 
   console.log("passwords match");
