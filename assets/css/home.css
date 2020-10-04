@@ -3,6 +3,17 @@ section {
 
 #feed-posts {
   width: 60%; }
+  #feed-posts form {
+    width: 80%;
+    position: relative;
+    position: center;
+    height: fit-content;
+    padding: 6%; }
+    #feed-posts form input {
+      width: 100%; }
+    #feed-posts form textarea {
+      position: relative;
+      position: center; }
 
 #user-friends {
   width: 30%; }

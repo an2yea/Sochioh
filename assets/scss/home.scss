@@ -3,6 +3,22 @@ section {
 }
 #feed-posts {
   width: 60%;
+  //display: flex;
+  //justify-content: center;
+  form {
+    width: 80%;
+    position: relative;
+    position: center;
+    height: fit-content;
+    padding: 6%;
+    input {
+      width: 100%;
+    }
+    textarea {
+      position: relative;
+      position: center;
+    }
+  }
 }
 #user-friends {
   width: 30%;
