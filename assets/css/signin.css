@@ -1,11 +1,26 @@
 .outer-container {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; }
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+.outer-container {
   min-width: 300px;
   align-items: column;
   width: 40%;
   position: relative;
-  left: 35%; }
+  left: 30%; }
   .outer-container h1 {
     text-align: center; }
+
+body {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 15px; }
 
 @media screen and (max-width: 800px) {
   .outer-container {
@@ -33,4 +48,9 @@
         outline: none;
         border: none; }
   .inner-container p {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 15px; }
+
+a {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 15px; }

@@ -1,13 +1,34 @@
+@mixin font-style {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 15px;
+}
+.outer-container {
+  animation: fadeInAnimation ease 5s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .outer-container {
   min-width: 300px;
   align-items: column;
   width: 40%;
   position: relative;
-  left: 35%;
+  left: 30%;
   h1 {
     text-align: center;
   }
 }
+body {
+  @include font-style();
+}
+
 @media screen and (max-width: 800px) {
   .outer-container {
     left: 0%;
@@ -39,6 +60,9 @@
     }
   }
   p {
-    font-size: 15px;
+    @include font-style();
   }
+}
+a {
+  @include font-style();
 }
