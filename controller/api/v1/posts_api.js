@@ -25,15 +25,17 @@ module.exports.destroy = async function (req, res) {
     //   console.log("Post does not exist");
     //   return res.redirect("back");
     // }
-    // if (post.user == req.user.id) {
-    post.remove();
-    await Comment.deleteMany({ post: req.params.id });
-    return res.json(200, {
-      message: "Post and associated commetns deleted succesfully",
-    });
-    //} else {
-    //return res.redirect("back");
-    //}
+    if (post.user == req.user.id) {
+      post.remove();
+      await Comment.deleteMany({ post: req.params.id });
+      return res.json(200, {
+        message: "Post and associated commetns deleted succesfully",
+      });
+    } else {
+      return res.json(401, {
+        message: "This post can't be deleted by you",
+      });
+    }
   } catch (err) {
     return res.json(500, {
       message: "Internal Server Error",
