@@ -8,7 +8,8 @@
 
 .post-comment-list {
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  width: fit-content; }
 
 li {
   list-style: none;
@@ -19,7 +20,8 @@ li {
   height: fit-content; }
 
 .content {
-  margin-right: 2px;
+  margin: 2px;
+  width: 80%;
   font-size: 20px;
   padding: 5px;
   background-color: lavender;
@@ -29,6 +31,7 @@ li {
   font-size: 15px;
   height: fit-content;
   width: fit-content;
+  padding-left: 3%;
   font-family: Georgia, "Times New Roman", Times, serif; }
   .post-comment-list ul {
     margin: 5%; }

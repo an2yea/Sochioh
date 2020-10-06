@@ -67,3 +67,16 @@ a {
   .OAuth:focus {
     outline: none;
     border: none; }
+
+.submit {
+  background-color: #55a1d8;
+  border: none;
+  border-radius: 3px;
+  transition: 0.7s; }
+
+.submit,
+.OAuth {
+  cursor: pointer; }
+  .submit:hover,
+  .OAuth:hover {
+    font-size: 120%; }

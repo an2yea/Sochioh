@@ -1,6 +1,9 @@
 section {
   display: inline-block;
 }
+.posts {
+  padding-bottom: 3%;
+}
 #feed-posts {
   width: 60%;
   //display: flex;
@@ -10,7 +13,8 @@ section {
     position: relative;
     position: center;
     height: fit-content;
-    padding: 6%;
+    padding-left: 10%;
+    margin-block-end: 2px;
     input {
       width: 100%;
     }
@@ -30,5 +34,12 @@ section {
   }
 }
 #create-post {
-  margin-bottom: 2px;
+  margin: 10%;
+  textarea,
+  input {
+    position: relative;
+    position: center;
+    margin: 3px;
+    width: 100%;
+  }
 }

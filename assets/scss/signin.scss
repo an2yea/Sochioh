@@ -80,3 +80,16 @@ a {
   border-color: #dd4b39;
   border-radius: 5px;
 }
+.submit {
+  background-color: #55a1d8;
+  border: none;
+  border-radius: 3px;
+  transition: 0.7s;
+}
+.submit,
+.OAuth {
+  cursor: pointer;
+  &:hover {
+    font-size: 120%;
+  }
+}
