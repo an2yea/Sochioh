@@ -47,10 +47,23 @@ body {
       .inner-container form input:focus {
         outline: none;
         border: none; }
-  .inner-container p {
-    font-family: "Trebuchet MS", Helvetica, sans-serif;
-    font-size: 15px; }
+
+p {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 15px; }
 
 a {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 15px; }
+
+.OAuth {
+  width: 100%;
+  height: 40px;
+  margin: 2% 4% 2% 4%;
+  position: center;
+  background-color: #dd4b39;
+  border-color: #dd4b39;
+  border-radius: 5px; }
+  .OAuth:focus {
+    outline: none;
+    border: none; }

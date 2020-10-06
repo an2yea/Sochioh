@@ -12,6 +12,7 @@ module.exports.home = async function (req, res) {
   //   });
   try {
     let posts = await Post.find({}) // Finds all the posts for you
+      .sort("-createdAt")
       .populate("user") // Populate the database pehle se
       .populate({
         path: "comments",

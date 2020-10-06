@@ -21,5 +21,14 @@ section {
   }
 }
 #user-friends {
+  border-left: lightblue;
   width: 30%;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}
+#create-post {
+  margin-bottom: 2px;
 }

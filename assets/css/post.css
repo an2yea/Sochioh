@@ -1,0 +1,52 @@
+.posts {
+  width: 90%;
+  min-width: 400px;
+  border: 1px solid indianred;
+  margin: 4%;
+  border-right-style: ridge;
+  border-radius: 5px; }
+
+.post-comment-list {
+  display: flex;
+  flex-direction: row; }
+
+li {
+  list-style: none;
+  letter-spacing: 0.03rem; }
+
+.main-content {
+  margin-left: 6%;
+  height: fit-content; }
+
+.content {
+  margin-right: 2px;
+  font-size: 20px;
+  padding: 5px;
+  background-color: lavender;
+  font-family: Arial, Helvetica, sans-serif; }
+
+.post-comment-list {
+  font-size: 15px;
+  height: fit-content;
+  width: fit-content;
+  font-family: Georgia, "Times New Roman", Times, serif; }
+  .post-comment-list ul {
+    margin: 5%; }
+
+.name {
+  font-size: 15px;
+  font-weight: 600; }
+
+.post-comments input {
+  width: 50%;
+  min-width: 40px;
+  margin: 2px;
+  border: none;
+  border-bottom: 2px indianred; }
+  .post-comments input:focus {
+    outline: none;
+    border: none; }
+
+.post-comments form {
+  display: flex;
+  justify-items: center; }

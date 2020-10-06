@@ -1,3 +1,9 @@
+@mixin form-style {
+  width: 100%;
+  height: 40px;
+  margin: 2% 4% 2% 4%;
+  position: center;
+}
 @mixin font-style {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 15px;
@@ -49,20 +55,28 @@ body {
     flex-direction: column;
     width: 80%;
     input {
-      width: 100%;
-      height: 40px;
-      margin: 2% 4% 2% 4%;
-      position: center;
+      @include form-style();
       &:focus {
         outline: none;
         border: none;
       }
     }
   }
-  p {
-    @include font-style();
-  }
 }
+p {
+  @include font-style();
+}
+
 a {
   @include font-style();
+}
+.OAuth {
+  @include form-style();
+  &:focus {
+    outline: none;
+    border: none;
+  }
+  background-color: #dd4b39;
+  border-color: #dd4b39;
+  border-radius: 5px;
 }

@@ -1,9 +1,10 @@
 const express = require("express");
 var router = express.Router();
+const passport = require("passport");
 const HController = require("../controller/homeController");
 
 console.log("Home router loaded");
-router.get("/", HController.home);
+router.get("/", passport.checkAuthentication, HController.home);
 router.use("/users", require("./users"));
 router.use("/posts", require("./posts"));
 router.use("/comments", require("./comments"));
