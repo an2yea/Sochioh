@@ -28,3 +28,11 @@
 </div>
 
 <script src="/js/home_posts"></script>
+<script src="/js/home_comments_post.js"></script>
+<script src="js/toggle_like.js"></script>
+<script>
+  $(".toggle-like").each(function () {
+    let self = this;
+    let toggleLike = new ToggleLike(self);
+  });
+</script>

@@ -1,6 +1,6 @@
 <link rel="stylesheet" type="text/css" href="/css/user_profile.css" />
-
 <img src="<%= user.avatar%>" alt="<%= user.name %>" width="100" />
+
 <% if (user.id == profile_user.id) { %>
 <form
   action="/users/update/<%= profile_user.id%>"

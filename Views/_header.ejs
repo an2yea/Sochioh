@@ -9,7 +9,14 @@
     <ul>
       <% if(locals.user) { %>
       <li>
-        <a href="/users/profile/<%= user.id %>"> <%= user.name %></a>
+        <a href="/users/profile/<%= user.id %>">
+          <img
+            src="<%= user.avatar%>"
+            alt="<%= user.name %>"
+            height="60px"
+            width="60px"
+          /><%= user.name %></a
+        >
       </li>
       <li>
         <a href="/users/sign_out"> Sign Out </a>
