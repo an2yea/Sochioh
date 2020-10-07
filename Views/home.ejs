@@ -27,6 +27,7 @@
     </P>
     <% } %>
   </section>
+  <!-- <%- include ('_chat-box') %> -->
 </div>
 
 <script src="/js/home_posts"></script>
@@ -42,6 +43,6 @@
 <script src="/js/chat_engine"></script>
 <% if(locals.user){ %>
 <script>
-  new ChatEngine("user-chat-box", "<%= locals.user._id%>");
+  new ChatEngine("user-chat-box", "<%= locals.user.email %>");
 </script>
 <% } %>

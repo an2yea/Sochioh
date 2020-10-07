@@ -13,13 +13,15 @@ module.exports.create = async function (req, res) {
         user: req.user._id,
       });
       post.comments.push(comment); // Array push
-      post.save(); // Save it to mongoDb database
-      console.log("comment created :", comment);
-      console.log("post updated : ", post);
-      console.log("Created the post");
-      res.redirect("/");
+      // post.save(); // Save it to mongoDb database
+      // console.log("comment created :", comment);
+      // console.log("post updated : ", post);
+      // console.log("Created the post");
+      // res.redirect("/");
       if (req.xhr) {
         comment = await comment.populate("user", "name").execPopulate();
+        console.log("AJAX ");
+        req.flash("success", "Comment Created !");
 
         return res.status(200).json({
           data: {
@@ -28,7 +30,6 @@ module.exports.create = async function (req, res) {
           message: "Post created!",
         });
       }
-
       req.flash("success", "Comment Created !");
       res.redirect("/");
     }
@@ -40,6 +41,7 @@ module.exports.create = async function (req, res) {
 module.exports.destroy = async function (req, res) {
   try {
     let comment = await Comment.findById(req.params.id);
+    console.log("body::::", req.body);
     if (comment.user.id == req.user.id) {
       let postId = comment.post;
       comment.remove();
@@ -61,7 +63,7 @@ module.exports.destroy = async function (req, res) {
       req.flash("success", "Comment Deleted");
       return res.redirect("back");
     } else {
-      req.flash("error", "Unauthorised to delete");
+      req.flash("error", err);
       return res.redirect("back");
     }
   } catch {

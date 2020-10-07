@@ -2,7 +2,7 @@
 <li id="comment-<%= comment._id %>">
   <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
   <small>
-    <a href="/posts/destroy/<%=comment.id%>"> D </a>
+    <a href="/comments/destroy/<%=comment.id%>"> D </a>
   </small>
   <% } %>
   <div class="name" style="display: inline-block">
