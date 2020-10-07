@@ -20,8 +20,8 @@ const sassMiddleware = require("node-sass-middleware");
 //To be able to use NOTY we connect-flash//
 const flash = require("connect-flash");
 const CustomMiddleware = require("./config/middeware");
-// const server = http.createServer();
-
+const chatServer = require("http").Server(app);
+const chatSockets = require("./config/chat_sockets");
 app.use(
   sassMiddleware({
     src: "./assets/scss",
