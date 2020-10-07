@@ -28,6 +28,9 @@ section {
   border-left: lightblue;
   width: 30%;
   text-align: center;
+  position: absolute;
+  top: 20%;
+  position: fixed;
   a {
     text-decoration: none;
     color: black;
@@ -41,5 +44,16 @@ section {
     position: center;
     margin: 3px;
     width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  #user-friends {
+    height: 0px;
+    width: 0px;
+    overflow: hidden;
+  }
+  #feed-posts {
+    width: 100%;
+    height: fit-content;
   }
 }

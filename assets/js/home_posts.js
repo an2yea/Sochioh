@@ -82,6 +82,7 @@ let deletePost = function(deletelink)
       url: $(deletelink).prop('href'),
       success: function(data) {
         $(`post-${data.data.post_id}`).remove();
+        console.log(req.body);
         new Noty({
           theme:"relax",
           text:"Post Deleted",

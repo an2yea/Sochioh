@@ -1,8 +1,11 @@
+//storing the userSchema
 const mongoose = require("mongoose");
-
+//Helps in handling multi-part forms
 const multer = require("multer");
+// Defining the path to the location of storage
 const path = require("path");
 const avatar_path = path.join("/uploads/users/avatars");
+
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -14,7 +17,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
       unique: true,
     },
-    //yha capital P tha..jabki form got it
+    //Ensure using the same names while declaring the property and while using it later
     password: {
       type: String,
       required: true,

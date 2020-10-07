@@ -35,7 +35,7 @@ body {
   @include font-style();
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
   .outer-container {
     left: 0%;
     right: 0%;
@@ -84,7 +84,7 @@ a {
   background-color: #55a1d8;
   border: none;
   border-radius: 3px;
-  transition: 0.7s;
+  transition: 0.5s;
 }
 .submit,
 .OAuth {

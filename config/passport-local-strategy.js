@@ -6,15 +6,18 @@ passport.use(
   new LocalStrategy(
     {
       usernameField: "email",
+      passReqToCallback: true,
     },
-    function (email, password, done) {
+    function (req, email, password, done) {
       User.findOne({ email: email }, function (err, user) {
         if (err) {
           console.log("Error in finding user --> passport");
+          req.flash("error", err);
           return done(err);
         }
         if (!user || user.password != password) {
           console.log("Invalid username/password --> passport");
+          req.flash("error", "Invalid Username/Password");
           return done(null, user);
         }
         return done(null, user);
@@ -33,6 +36,7 @@ passport.deserializeUser(function (id, done) {
   User.findById(id, function (err, user) {
     if (err) {
       console.log("Error in finding user");
+      req.flash("error", err);
       return done(err);
     }
     return done(null, user);
@@ -49,7 +53,7 @@ passport.checkAuthentication = function (req, res, next) {
 };
 passport.setAuthenticatedUser = function (req, res, next) {
   if (req.isAuthenticated()) {
-    res.locals.user = req.user; //sent to response locals , req,user contains curretn signed in user
+    res.locals.user = req.user; //sent to response locals , req.user contains curretn signed in user
   }
   next();
 };

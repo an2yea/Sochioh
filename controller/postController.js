@@ -10,6 +10,7 @@ module.exports.create = async function (req, res) {
       user: req.user._id,
     });
     if (req.xhr) {
+      req.flash(("success", "Post Published"));
       return res.json(200, {
         message: "Post created",
         data: {

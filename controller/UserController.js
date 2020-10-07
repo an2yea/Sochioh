@@ -1,12 +1,11 @@
 const User = require("../models/user");
 const fs = require("fs");
 const path = require("path");
-module.exports.profile = function (req, res) {
-  User.findById(req.params.id, function (err, user) {
-    return res.render("profile", {
-      title: "User Profile",
-      profile_user: user,
-    });
+module.exports.profile = async function (req, res) {
+  user = await User.findById(req.params.id);
+  return res.render("profile", {
+    title: "User Profile",
+    profile_user: user,
   });
 };
 module.exports.update = async function (req, res) {
@@ -35,6 +34,7 @@ module.exports.update = async function (req, res) {
           user.avatar = User.avatarPath + "/" + req.file.filename;
         }
         user.save();
+        req.flash("success", "User Profile Updated");
         return res.redirect("back");
       });
     } catch {
@@ -42,11 +42,12 @@ module.exports.update = async function (req, res) {
       return res.redirect("back");
     }
   } else {
-    req.flash("error", "unauthorised");
+    req.flash("error", "Unauthorised");
     return res.status(401).send("Unauthorised");
   }
 };
 module.exports.signin = function (req, res) {
+  //passport.js
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
@@ -127,7 +128,8 @@ module.exports.createSession = function (req, res) {
 
 // };
 module.exports.destroySession = function (req, res) {
-  req.logout(); //Passport.js
   req.flash("success", "You have logged out");
+  req.logout(); //Passport.js
+  // req.flash("success", "You have logged out");
   return res.redirect("/"); //transferring messge to res
 };

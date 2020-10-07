@@ -17,6 +17,7 @@ const passportGoogle = require("./config/passport-google-oauth2-strategy");
 //Cookie doesn't get lost on creating another session
 const MongoStore = require("connect-mongo")(session);
 const sassMiddleware = require("node-sass-middleware");
+//To be able to use NOTY we connect-flash//
 const flash = require("connect-flash");
 const CustomMiddleware = require("./config/middeware");
 // const server = http.createServer();

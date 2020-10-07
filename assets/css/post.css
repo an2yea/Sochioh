@@ -1,10 +1,12 @@
 .posts {
   width: 90%;
   min-width: 400px;
-  border: 1px solid indianred;
+  background-color: white;
   margin: 4%;
+  box-shadow: 2px wheat;
   border-right-style: ridge;
-  border-radius: 5px; }
+  border-radius: 5px;
+  padding-top: 10px; }
 
 .post-comment-list {
   display: flex;
