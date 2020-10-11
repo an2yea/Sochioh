@@ -6,7 +6,7 @@
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
     <small>
       <a class="delete-post-buttton" href="/posts/destroy/<%=post.id%>">
-        <img src>
+        <i class="fa fa-trash-o" aria-hidden="true"></i>
       </a>
     </small>
     <% } %>

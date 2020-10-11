@@ -41,8 +41,8 @@ module.exports.create = async function (req, res) {
 module.exports.destroy = async function (req, res) {
   try {
     let comment = await Comment.findById(req.params.id);
-    console.log("body::::", req.body);
-    if (comment.user.id == req.user.id) {
+    console.log("body::::", req.params, req.user.id, comment.user._id);
+    if (comment.user._id == req.user.id) {
       let postId = comment.post;
       comment.remove();
 
@@ -63,10 +63,10 @@ module.exports.destroy = async function (req, res) {
       req.flash("success", "Comment Deleted");
       return res.redirect("back");
     } else {
-      req.flash("error", err);
+      req.flash("error", "Unauthorised");
       return res.redirect("back");
     }
-  } catch {
+  } catch(err) {
     req.flash("error", err);
     return;
   }

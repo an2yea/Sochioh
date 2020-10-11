@@ -15,5 +15,8 @@ module.exports.chatSockets = function (socketServer) {
       // Tell everyone if someone new enters
       io.in(data.chatRoom).emit("User_Joined", data);
     });
+    socket.on("send_message", function (data) {
+      io.in(data.chatRoom).emit("receive_message", data);
+    });
   });
 };
