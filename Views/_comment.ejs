@@ -1,13 +1,13 @@
 <link rel="stylesheet" type="text/css" href="/css/comment.css" />
 <li id="comment-<%= comment._id %>">
-  <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
-  <small>
-    <a href="/comments/destroy/<%=comment.id%>"> D </a>
-  </small>
-  <% } %>
   <div class="name" style="display: inline-block">
     <small> <%= comment.user.name %> </small>
   </div>
   <div style="display: inline-block"><%= comment.content %></div>
+  <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
+    <small>
+      <a href="/comments/destroy/<%=comment.id%>"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    </small>
+    <% } %>
   <br />
 </li>
