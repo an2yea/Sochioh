@@ -13,7 +13,7 @@ module.exports.create = async function (req, res) {
         user: req.user._id,
       });
       post.comments.push(comment); // Array push
-      // post.save(); // Save it to mongoDb database
+      post.save(); // Save it to mongoDb database
       // console.log("comment created :", comment);
       // console.log("post updated : ", post);
       // console.log("Created the post");

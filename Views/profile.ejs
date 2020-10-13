@@ -1,6 +1,11 @@
-<link rel="stylesheet" type="text/css" href="/css/user_profile.css" />
-<img src="<%= user.avatar%>" alt="<%= user.name %>" width="100" />
+<link rel="stylesheet" type="text/css" href="/css/user.css" />
+<link rel="stylesheet" type="text/css" href="/css/signin.css" />
 
+
+<div class="outer-container">
+  <img src="<%= user.avatar%>" alt="<%= user.name %>" style="width:100; position: relative; left:40%;" />
+<h1><%= profile_user.name %> </h1>
+<div class="inner-container">
 <% if (user.id == profile_user.id) { %>
 <form
   action="/users/update/<%= profile_user.id%>"
@@ -28,3 +33,5 @@
 <p><%= profile_user.name %></p>
 <p><%= profile_user.email %></p>
 <% } %>
+</div>
+</div>

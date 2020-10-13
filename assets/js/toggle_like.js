@@ -26,7 +26,7 @@ class ToggleLike {
           $(self).html(`${likesCount} Likes`);
         })
         .fail(function (errData) {
-          console.log("error in completing the request");
+          console.log("error in completing request");
         });
     });
   }

@@ -32,7 +32,7 @@ class ChatEngine{
                 self.socket.emit('send_message', {
                     message: msg,
                     user_email: self.userEmail,
-                    chatroom: 'Sochioh'
+                    chatRoom: 'Sochioh'
                 });
             }
         });
