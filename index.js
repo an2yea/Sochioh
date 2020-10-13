@@ -1,5 +1,7 @@
 // const http = require("http");
 const express = require("express");
+//Accessing Environment Variables
+const env = require('./config/environment');
 //Cookie parser
 const cookieParser = require("cookie-parser");
 const app = express();
@@ -28,8 +30,8 @@ console.log("Chat server listening");
 
 app.use(
   sassMiddleware({
-    src: "./assets/scss",
-    dest: "./assets/css",
+    src: path.join(__dirname,env.asset_path,'scss'),
+    dest: path.join(__dirname,env.asset_path,'css'),
     debug: true,
     outputStyle: "extended",
     prefix: "/css",
@@ -38,7 +40,7 @@ app.use(
 app.use(express.urlencoded());
 app.use(cookieParser());
 
-app.use(express.static("./assets"));
+app.use(express.static(env.asset_path));
 //Making uploads path available
 app.use("/uploads", express.static(__dirname + "/uploads"));
 app.use(expressLayouts);
@@ -51,7 +53,7 @@ app.set("views", path.join(__dirname, "Views"));
 app.use(
   session({
     name: "sochioh",
-    secret: "vnaibrbgr",
+    secret: env.session_cookie_key,
     saveUninitialized: false,
     resave: false,
     cookie: {

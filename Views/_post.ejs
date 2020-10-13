@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/post.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <li id="post-<%= post.id %>">
   <div class="posts">
     <div class="main-content">
@@ -15,8 +16,9 @@
       <% } %>
     <div class='content'><%= post.content %></div>
     <% if (locals.user) {%>
+      <p style="display: inline-block;"><%= post.likes.length %> <i class="fa fa-heart" aria-hidden="true"></i></p>
       <a class="toggle-like" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post.id%>&type=Post">
-       <%= post.likes.length %> Likes
+       Like
       </a>
       <% } else { %>
           <%= post.likes.length %> Likes
