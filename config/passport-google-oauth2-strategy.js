@@ -4,7 +4,7 @@ const crypto = require("crypto");
 const User = require("../models/user");
 const { profile } = require("console");
 const env = require("./environment")
-//usig new Strategy for google
+//using new Strategy for google
 passport.use(
   new GoogleStrategy(
     {

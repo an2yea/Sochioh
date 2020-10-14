@@ -21,6 +21,7 @@ router.post(
 );
 router.get("/sign_out", UserController.destroySession);
 router.post("/update/:id", passport.checkAuthentication, UserController.update);
+router.get('/delete/:id',passport.checkAuthentication, UserController.destroy)
 //Given by passport for Google Authorisation
 router.get(
   "/auth/google",

@@ -45,6 +45,10 @@
     text-decoration: none;
     color: black;
   }
+  p:hover {
+    background-color: beige;
+    border: 1px solid black;
+  }
 }
 #create-post {
   margin: 10%;

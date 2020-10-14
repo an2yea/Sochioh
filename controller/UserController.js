@@ -1,4 +1,7 @@
 const User = require("../models/user");
+const Post = require("../models/post");
+const Comment = require("../models/comments");
+const Like = require("../models/likes");
 const fs = require("fs");
 const path = require("path");
 module.exports.profile = async function (req, res) {
@@ -8,6 +11,36 @@ module.exports.profile = async function (req, res) {
     profile_user: user,
   });
 };
+module.exports.destroy = async function(req,res)
+{try{
+  let user = await User.findById(req.params.id);
+  console.log("body :::", req.body);
+  console.log(user.id , " " , req.user.id);
+  if(user.id == req.user.id)
+  {
+
+      console.log("ID's match");
+      
+      await Like.deleteMany({user : user});
+      console.log("Likes deleted");
+      await Comment.deleteMany({user: user});
+      console.log("Comments deleted");
+      await Post.deleteMany({user : user});
+      console.log("Posts deleted");
+      
+      user.remove();
+      console.log("User Deleted")
+      req.flash('success',"Account Deleted");
+      return res.redirect('/');
+  }
+  } catch(err)
+    {
+        console.log("Don't match");
+        res.redirect('back');
+    }
+  console.log("vbiaberiagb");
+  return res.redirect('/');
+}
 module.exports.update = async function (req, res) {
   // if (req.user.id == req.params.id) {
   //   User.findByIdAndUpdate(req.params.id, req.body, function (err, user) {

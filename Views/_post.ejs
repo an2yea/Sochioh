@@ -10,15 +10,15 @@
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
       <small>
         <a class="delete-post-buttton" href="/posts/destroy/<%=post.id%>">
-          <i class="fa fa-trash" aria-hidden="true"></i>
+          <i class="fa fa-trash-o" aria-hidden="true" style="height: 10px; width:10px"></i>
         </a>
       </small>
       <% } %>
     <div class='content'><%= post.content %></div>
     <% if (locals.user) {%>
-      <p style="display: inline-block;"><%= post.likes.length %> <i class="fa fa-heart" aria-hidden="true"></i></p>
+      <!-- <p style="display: inline-block;"><i class="fa fa-heart" aria-hidden="true"></i></p> -->
       <a class="toggle-like" data-likes="<%= post.likes.length %>" href="/likes/toggle/?id=<%=post.id%>&type=Post">
-       Like
+        <i class="far fa-heart"></i> <%= post.likes.length %>
       </a>
       <% } else { %>
           <%= post.likes.length %> Likes
