@@ -32,12 +32,17 @@ passport.use(
             {
               name: profile.displayName,
               email: profile.emails[0].value,
+              avatar: profile.photos[0].value,
               password: crypto.randomBytes(20).toString("hex"),
             },
             function (err, user) {
               if (err) {
-                console.log("error in creating user");
+                req.flash('error',"error in creating user");
                 return;
+              }
+              else
+              {
+                return done(null, user);
               }
             }
           );

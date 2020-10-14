@@ -12,7 +12,8 @@ module.exports.profile = async function (req, res) {
   });
 };
 module.exports.destroy = async function(req,res)
-{try{
+{
+  try{
   let user = await User.findById(req.params.id);
   console.log("body :::", req.body);
   console.log(user.id , " " , req.user.id);
