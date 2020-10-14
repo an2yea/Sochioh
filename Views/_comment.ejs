@@ -5,7 +5,7 @@
   </div>
   <div style="display: inline-block"><%= comment.content %></div>
   <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
-    <small>
+    <small class="del-comment">
       <a href="/comments/destroy/<%=comment.id%>"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
     </small>
     <% } %>

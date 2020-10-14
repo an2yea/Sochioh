@@ -37,11 +37,12 @@ passport.use(
             },
             function (err, user) {
               if (err) {
-                req.flash('error',"error in creating user");
+                // req.flash('error',"Error in creating user");
                 return;
               }
               else
               {
+                // user.flash('success',"Account Created !")
                 return done(null, user);
               }
             }

@@ -12,6 +12,14 @@
   display: flex;
   flex-direction: row;
   width: fit-content; }
+  .post-comment-list ul {
+    width: 100%;
+    margin: 0px; }
+    .post-comment-list ul li {
+      width: 100%; }
+      .post-comment-list ul li small {
+        position: relative;
+        right: 3%; }
 
 li {
   list-style: none;
@@ -23,7 +31,7 @@ li {
 
 .content {
   margin: 2px;
-  width: 80%;
+  width: 90%;
   font-size: 20px;
   padding: 5px;
   background-color: lavender;
@@ -32,11 +40,9 @@ li {
 .post-comment-list {
   font-size: 15px;
   height: fit-content;
-  width: fit-content;
+  width: 100%;
   padding-left: 3%;
   font-family: Georgia, "Times New Roman", Times, serif; }
-  .post-comment-list ul {
-    margin: 5%; }
 
 .name {
   font-size: 15px;

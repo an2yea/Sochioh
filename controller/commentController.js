@@ -1,6 +1,7 @@
 const Comment = require("../models/comments");
 const Post = require("../models/post");
 const Like = require("../models/likes");
+const commentsMailer = require('../mailers/commentMailer');
 module.exports.create = async function (req, res) {
   console.log(" body : ", req.body);
   try {
@@ -13,13 +14,15 @@ module.exports.create = async function (req, res) {
         user: req.user._id,
       });
       post.comments.push(comment); // Array push
-      post.save(); // Save it to mongoDb database
+      post.save();
+      comment = await comment.populate("user", "name email").execPopulate();
+      commentsMailer.newComment(comment);
+      // Save it to mongoDb database
       // console.log("comment created :", comment);
       // console.log("post updated : ", post);
       // console.log("Created the post");
       // res.redirect("/");
       if (req.xhr) {
-        comment = await comment.populate("user", "name").execPopulate();
         console.log("AJAX ");
         req.flash("success", "Comment Created !");
 

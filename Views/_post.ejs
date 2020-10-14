@@ -6,7 +6,7 @@
   <div class="posts">
     <div class="main-content">
     <p>
-    <small class='name'> <%= post.user.name %> </small>
+    <small class='name' style="margin-left:2% ;"> <%= post.user.name %> </small>
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
       <small>
         <a class="delete-post-buttton" href="/posts/destroy/<%=post.id%>">
