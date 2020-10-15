@@ -1,3 +1,7 @@
+@mixin horizontal-list {
+  list-style: none;
+  display: inline-block;
+}
 #outer {
   background-image: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
   position: relative;
@@ -36,7 +40,7 @@
   border-radius: 2px;
   padding: 0% 2% 0% 2%;
   top: 30%;
-  width: fit-content;
+  width: 20%;
   right: 10%;
   text-align: center;
   position: absolute;
@@ -49,13 +53,20 @@
     padding: 2%;
     width: 100%;
     display: inline-block;
-    margin: 4%;
     &:hover {
       background-color: burlywood;
     }
+    li {
+      @include horizontal-list();
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 4px;
+      }
+    }
   }
   .friend:nth-child(2n) {
-    background-color: cadetblue;
+    background-color: #eda6a6;
   }
 }
 #create-post {
@@ -69,7 +80,7 @@
   }
 }
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: 800px) {
   #user-friends {
     height: 0px;
     width: 0px;
