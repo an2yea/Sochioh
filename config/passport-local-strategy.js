@@ -17,8 +17,8 @@ passport.use(
         }
         if (!user || user.password != password) {
           console.log("Invalid username/password --> passport");
-          req.flash("error", "Invalid Username/Password");
-          return done(null, false);
+          req.flash("error", "Invalid Username or Password");
+          return done(null,false);
         }
         return done(null, user);
       });
