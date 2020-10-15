@@ -9,8 +9,8 @@
     <small class='name' style="margin-left:2% ;"> <%= post.user.name %> </small>
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
       <small>
-        <a class="delete-post-buttton" href="/posts/destroy/<%=post.id%>">
-          <i class="fa fa-trash-o" aria-hidden="true" style="height: 10px; width:10px"></i>
+        <a class="delete-b" href="/posts/destroy/<%=post.id%>">
+          <i class="fa fa-trash" aria-hidden="true" style="height: 10px; width:10px"></i>
         </a>
       </small>
       <% } %>

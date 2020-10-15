@@ -5,3 +5,7 @@ li .content {
   float: right; }
   .del-comment a {
     text-decoration: none; }
+
+.name a {
+  text-decoration: none;
+  color: grey; }

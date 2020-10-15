@@ -1,7 +1,7 @@
 <link rel="stylesheet" type="text/css" href="/css/comment.css" />
 <li id="comment-<%= comment._id %>">
   <div class="name" style="display: inline-block">
-    <small> <%= comment.user.name %> </small>
+    <small> <a href="/users/profile/<%= comment.user.id %>"> <%= comment.user.name %> </small></a>
   </div>
   <div style="display: inline-block"><%= comment.content %></div>
   <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
@@ -9,7 +9,7 @@
       <a class="toggle-like" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment.id%>&type=Comment">
         <i class="far fa-heart"></i> <%= comment.likes.length %>
       </a>
-      <a href="/comments/destroy/<%=comment.id%>"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
+      <a class="delete-b" href="/comments/destroy/<%=comment.id%>"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
     </small>
     <% } %>
   <br />
