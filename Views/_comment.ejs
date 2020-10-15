@@ -6,6 +6,9 @@
   <div style="display: inline-block"><%= comment.content %></div>
   <% if((locals.user) && (locals.user.id == comment.user.id)) { %>
     <small class="del-comment">
+      <a class="toggle-like" data-likes="<%= comment.likes.length %>" href="/likes/toggle/?id=<%=comment.id%>&type=Comment">
+        <i class="far fa-heart"></i> <%= comment.likes.length %>
+      </a>
       <a href="/comments/destroy/<%=comment.id%>"> <i class="fa fa-trash" aria-hidden="true"></i> </a>
     </small>
     <% } %>

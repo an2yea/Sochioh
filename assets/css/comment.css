@@ -3,3 +3,5 @@ li .content {
 
 .del-comment {
   float: right; }
+  .del-comment a {
+    text-decoration: none; }

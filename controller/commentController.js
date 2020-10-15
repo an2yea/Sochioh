@@ -33,8 +33,8 @@ module.exports.create = async function (req, res) {
           message: "Post created!",
         });
       }
-      req.flash("success", "Comment Created !");
-      res.redirect("/");
+      // req.flash("success", "Comment Created !");
+      // res.redirect("/");
     }
   } catch (err) {
     console.log("error in creating comment", err);
