@@ -41,7 +41,8 @@
   #user-friends .friend {
     padding: 2%;
     width: 100%;
-    display: inline-block; }
+    display: inline-block;
+    transition: 0.3 cubic-bezier(0.175, 0.885, 0.32, 1.275); }
     #user-friends .friend:hover {
       background-color: burlywood; }
     #user-friends .friend li {
