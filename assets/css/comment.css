@@ -2,5 +2,4 @@ li .content {
   margin: 2px; }
 
 .del-comment {
-  position: relative;
-  left: 50%; }
+  float: right; }

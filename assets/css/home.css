@@ -37,9 +37,15 @@
   #user-friends a {
     text-decoration: none;
     color: black; }
-  #user-friends p:hover {
-    background-color: beige;
-    border: 1px solid black; }
+  #user-friends .friend {
+    padding: 2%;
+    width: 100%;
+    display: inline-block;
+    margin: 4%; }
+    #user-friends .friend:hover {
+      background-color: burlywood; }
+  #user-friends .friend:nth-child(2n) {
+    background-color: cadetblue; }
 
 #create-post {
   margin: 10%; }

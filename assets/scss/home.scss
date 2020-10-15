@@ -45,9 +45,17 @@
     text-decoration: none;
     color: black;
   }
-  p:hover {
-    background-color: beige;
-    border: 1px solid black;
+  .friend {
+    padding: 2%;
+    width: 100%;
+    display: inline-block;
+    margin: 4%;
+    &:hover {
+      background-color: burlywood;
+    }
+  }
+  .friend:nth-child(2n) {
+    background-color: cadetblue;
   }
 }
 #create-post {

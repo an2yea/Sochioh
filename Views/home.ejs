@@ -22,9 +22,9 @@
   <div id="user-friends">
     <h4>Friends</h4>
     <% for ( u of all_users) { %>
-    <P>
+    <div class="friend">
       <a href="/users/profile/<%= u.id %>"> <%= u.name %></a>
-    </P>
+    </div>
     <% } %>
   <!-- <%- include ('_chat-box') %> -->
 </div>
