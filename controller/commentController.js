@@ -16,7 +16,7 @@ module.exports.create = async function (req, res) {
       post.comments.push(comment); // Array push
       post.save();
       comment = await comment.populate("user", "name email").execPopulate();
-      commentsMailer.newComment(comment);
+     // commentsMailer.newComment(comment);
       // Save it to mongoDb database
       // console.log("comment created :", comment);
       // console.log("post updated : ", post);
@@ -33,8 +33,8 @@ module.exports.create = async function (req, res) {
           message: "Post created!",
         });
       }
-      // req.flash("success", "Comment Created !");
-      // res.redirect("/");
+      req.flash("success", "Comment Created !");
+      res.redirect("/");
     }
   } catch (err) {
     console.log("error in creating comment", err);
