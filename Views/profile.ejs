@@ -36,9 +36,12 @@
   <input type="submit" value="Update Profile" />
 </form>
 <form>
-  <button id="delete-account"><a class="user-delete" href="/users/delete/<%= user.id %>"> Delete Account </a></button>
+  <a class="user-delete" href="/users/delete/<%= user.id %>">
+  <input type="submit" id="delete-account" value="Delete Account"> 
+</a>
 </form>
 <% } else { %>
+
 <p><%= profile_user.name %></p>
 <p><%= profile_user.email %></p>
 <% } %>

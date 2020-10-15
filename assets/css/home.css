@@ -17,7 +17,8 @@
     padding-left: 10%;
     margin-block-end: 2px; }
     #feed-posts form input {
-      width: 100%; }
+      width: 50%;
+      margin-left: 25%; }
     #feed-posts form textarea {
       position: relative;
       position: center; }
@@ -29,7 +30,7 @@
   border-radius: 2px;
   padding: 0% 2% 0% 2%;
   margin-bottom: 2%;
-  top: 30%;
+  top: 10%;
   width: 20%;
   right: 10%;
   text-align: left;
@@ -63,12 +64,28 @@
     position: center;
     margin: 3px;
     width: 100%; }
+  #create-post textarea {
+    resize: none; }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 670px) {
+  #create-post {
+    width: 100%;
+    margin: 1%;
+    margin-top: 10%; }
+  #feed-posts {
+    width: 100%;
+    height: fit-content;
+    margin: 0px; }
+    #feed-posts ul {
+      padding: 0px; } }
+
+@media screen and (max-width: 1000px) {
   #user-friends {
     height: 0px;
     width: 0px;
     overflow: hidden; }
-  #feed-posts {
-    width: 100%;
-    height: fit-content; } }
+  #create-post {
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-sizing: border-box; } }
