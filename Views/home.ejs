@@ -42,7 +42,7 @@
   <!-- <%- include ('_chat-box') %> -->
 </div>
 
-<script src="/js/home_posts"></script>
+<script src="/js/home_posts.js"></script>
 <script src="/js/home_comments_post.js"></script>
 <script src="js/toggle_like.js"></script>
 <script>
@@ -52,7 +52,7 @@
   });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.1/socket.io.js"></script>
-<script src="/js/chat_engine"></script>
+<script src="/js/chat_engine.js"></script>
 <% if(locals.user){ %>
 <script>
   new ChatEngine("user-chat-box", "<%= locals.user.email %>");
