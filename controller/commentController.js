@@ -16,7 +16,7 @@ module.exports.create = async function (req, res) {
       post.comments.push(comment); // Array push
       post.save();
       comment = await comment.populate("user", "name email").execPopulate();
-     // commentsMailer.newComment(comment);
+     //67b5324ed031df678af295a64633f5ce65b40a16 commentsMailer.newComment(comment);
       // Save it to mongoDb database
       // console.log("comment created :", comment);
       // console.log("post updated : ", post);
