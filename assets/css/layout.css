@@ -7,7 +7,8 @@ body {
   color: red; }
 
 .delete-b {
-  color: black; }
+  color: black;
+  float: right; }
 
 a {
   text-decoration: none; }

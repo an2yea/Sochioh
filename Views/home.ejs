@@ -25,10 +25,15 @@
     <div class="friend">
       <a href="/users/profile/<%= u.id %>"> 
         <li>
-          <img
-          src="<%= u.avatar%>"
-          alt="<%= u.name %>"
-        />
+          <% if(u.avatar) {%>
+            <img
+            src="<%= u.avatar%>"
+            alt="<%= u.name %>"
+          />
+          <%} else {%>
+            <img src="../uploads/blank-profile-picture-973460_640.png" >
+          <% } %>
+         
           <%= u.name %>
         </li>
         </a>

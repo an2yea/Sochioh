@@ -5,7 +5,7 @@
 <li id="post-<%= post.id %>">
   <div class="posts">
     <div class="main-content">
-    <p>
+    <p style="padding-right: 10%;">
     <small class='name' style="margin-left:2% ;"> <%= post.user.name %> </small>
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
       <small>

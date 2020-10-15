@@ -126,7 +126,8 @@ module.exports.create = function (req, res) {
         if (err) {
           console.log("error in creating user");
         }
-        console.log("user created with singup ");
+        user.avatar = "./uploads/blank-profile-picture-973460_640.jpg";
+        console.log("user created with signup ");
         return res.redirect("/users/sign_in");
       });
     } else {

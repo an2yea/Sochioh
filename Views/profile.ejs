@@ -3,8 +3,14 @@
 
 
 <div class="outer-container">
-  <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name %>" style="width:100; position: relative; left:40%;" />
-<h1><%= profile_user.name %> </h1>
+  <% if(profile_user.avatar) {%>
+    <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name %>" style="width:100; position: relative; left:40%;" />
+  <%} else {%>
+    <img src="../uploads/blank-profile-picture-973460_640.png" style="width:100; position: relative; left:40%;">
+  <% } %>
+
+
+  <h1><%= profile_user.name %> </h1>
 <div class="inner-container">
 <% if (user.id == profile_user.id) { %>
 <form

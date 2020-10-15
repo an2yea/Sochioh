@@ -52,7 +52,7 @@
         width: 40px;
         border-radius: 4px; }
   #user-friends .friend:nth-child(2n) {
-    background-color: #eda6a6; }
+    background-color: #ede5e5; }
 
 #create-post {
   margin: 10%; }
