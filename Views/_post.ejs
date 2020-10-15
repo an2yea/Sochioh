@@ -6,7 +6,17 @@
   <div class="posts">
     <div class="main-content">
     <p style="padding-right: 10%;">
-    <small class='name' style="margin-left:2% ;"> <%= post.user.name %> </small>
+    <small class='name' style="margin-left:2% ;"> 
+      <% if(post.user.avatar) {%>
+      <img
+      src="<%= post.user.avatar%>"
+      alt="<%= post.user.name %>"
+      height="30px" width="30px"
+    />  <% } else { %>
+      <img src="../uploads/blank-profile-picture-973460_640.png"alt="<%= post.user.name %>"
+      height="30px" width="30px"/>
+      <% } %>
+    <%= post.user.name %> </small>
     <% if((locals.user) && (locals.user.id == post.user.id)) { %>
       <small>
         <a class="delete-b" href="/posts/destroy/<%=post.id%>">

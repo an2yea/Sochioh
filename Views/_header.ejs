@@ -10,12 +10,18 @@
     <ul id="logged-in">
       <li class="logged-in">
         <a href="/users/profile/<%= user.id %>">
-          <img
+          <% if(user.avatar) {%>
+            <img
             src="<%= user.avatar%>"
             alt="<%= user.name %>"
             height="40px"
             width="40px"
           />
+          <%} else {%>
+            <img src="../uploads/blank-profile-picture-973460_640.png" height="40px"
+            width="40px">
+          <% } %>
+          
         </a>
       </li>
       <li style="margin:3%">
