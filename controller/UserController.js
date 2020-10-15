@@ -85,7 +85,7 @@ module.exports.signin = function (req, res) {
   if (req.isAuthenticated()) {
     return res.redirect("/users/profile");
   }
-  console.log("signin controller recached ");
+  console.log("signin controller reached ");
   return res.render("signin", {
     title: "Sign in",
   });
