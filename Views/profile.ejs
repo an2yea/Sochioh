@@ -35,7 +35,7 @@
   <input type="file" name="avatar" placeholder="Profile Picture" />
   <input type="submit" value="Update Profile" />
 </form>
-<form>
+<form action="/users/delete/<%= user.id %>" method="GET">
   <a class="user-delete" href="/users/delete/<%= user.id %>">
   <input type="submit" id="delete-account" value="Delete Account"> 
 </a>

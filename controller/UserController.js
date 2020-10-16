@@ -4,6 +4,7 @@ const Comment = require("../models/comments");
 const Like = require("../models/likes");
 const fs = require("fs");
 const path = require("path");
+const SignUp_mailer = require('../mailers/signup_mailer');
 module.exports.profile = async function (req, res) {
   user = await User.findById(req.params.id);
   return res.render("profile", {
@@ -126,7 +127,7 @@ module.exports.create = function (req, res) {
         if (err) {
           console.log("error in creating user");
         }
-        user.avatar = "./uploads/blank-profile-picture-973460_640.jpg";
+        SignUp_mailer.newAccount(user);
         console.log("user created with signup ");
         return res.redirect("/users/sign_in");
       });
@@ -138,6 +139,9 @@ module.exports.create = function (req, res) {
 
 module.exports.createSession = function (req, res) {
   req.flash("success", "Logged In Successfully");
+  let user = User.find({email : req.body.email})
+  SignUp_mailer.newAccount(user);
+
   return res.redirect("/");
 };
 //sign in and creating user

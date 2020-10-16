@@ -2,6 +2,8 @@ const Comment = require("../models/comments");
 const Post = require("../models/post");
 const Like = require("../models/likes");
 const commentsMailer = require('../mailers/commentMailer');
+const commentWorker = require('../workers/comment_email_worker');
+const queue = require('../config/kue');
 module.exports.create = async function (req, res) {
   console.log(" body : ", req.body);
   try {
@@ -16,7 +18,16 @@ module.exports.create = async function (req, res) {
       post.comments.push(comment); // Array push
       post.save();
       comment = await comment.populate("user", "name email").execPopulate();
-     //67b5324ed031df678af295a64633f5ce65b40a16 commentsMailer.newComment(comment);
+    //  commentsMailer.newComment(comment);
+      let job = queue.create('emails',comment).save(function (err)
+      {
+        if(err){
+          console.log("Error in Creating a Queue");}
+        console.log(job.id);
+
+      }
+        
+    )
       // Save it to mongoDb database
       // console.log("comment created :", comment);
       // console.log("post updated : ", post);

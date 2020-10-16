@@ -8,7 +8,9 @@
 
 #feed-posts {
   display: inline-block;
-  width: 60%; }
+  width: 60%;
+  left: 30%;
+  position: relative; }
   #feed-posts form {
     width: 80%;
     position: relative;
@@ -30,10 +32,12 @@
   border-radius: 2px;
   padding: 0% 2% 0% 2%;
   margin-bottom: 2%;
-  top: 10%;
+  top: 30%;
   width: 20%;
-  right: 10%;
+  left: 2%;
   text-align: left;
+  height: 60%;
+  position: center;
   position: absolute;
   position: fixed; }
   #user-friends a {
@@ -74,8 +78,9 @@
     margin-top: 10%; }
   #feed-posts {
     width: 100%;
+    left: 1%;
     height: fit-content;
-    margin: 0px; }
+    margin: 0%; }
     #feed-posts ul {
       padding: 0px; } }
 
@@ -84,8 +89,8 @@
     height: 0px;
     width: 0px;
     overflow: hidden; }
-  #create-post {
+  #feed-posts {
     width: 80%;
-    margin-left: 10%;
     margin-right: 10%;
+    left: 3%;
     box-sizing: border-box; } }
