@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box; }
+
 .outer-container {
   animation: fadeInAnimation ease 5s;
   animation-iteration-count: 1;
@@ -9,13 +12,21 @@
   100% {
     opacity: 1; } }
 
+body {
+  margin: 0px;
+  padding: 0px;
+  background-image: linear-gradient(45deg, #ff9190, #5e72eb); }
+
 .outer-container {
+  padding: 1%;
+  border-radius: 4px;
   min-width: 300px;
   align-items: column;
-  width: 40%;
   position: relative;
-  left: 30%;
-  top: 100px; }
+  background-color: white;
+  left: 33%;
+  top: 20%;
+  width: 40%; }
   .outer-container h1 {
     text-align: center; }
 
@@ -23,29 +34,27 @@ body {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   font-size: 15px; }
 
-@media screen and (max-width: 600px) {
-  .outer-container {
-    left: 0%;
-    right: 0%;
-    width: 100%; } }
-
 .inner-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: column;
   width: 100%; }
-  .inner-container form {
+  .inner-container .forms {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 80%; }
-    .inner-container form input {
+    width: 90%;
+    padding: 2% 4% 2% 4%;
+    margin: 2% 5% 2% 5%; }
+    .inner-container .forms input,
+    .inner-container .forms button {
       width: 100%;
       height: 40px;
-      margin: 2% 4% 2% 4%;
-      position: center; }
-      .inner-container form input:focus {
+      position: center;
+      margin: 1% 0% 1% 0%; }
+      .inner-container .forms input:focus,
+      .inner-container .forms button:focus {
         outline: none;
         border: none; }
 
@@ -60,7 +69,6 @@ a {
 .OAuth {
   width: 100%;
   height: 40px;
-  margin: 2% 4% 2% 4%;
   position: center;
   margin: 1% 4% 1% 4%;
   background-color: #dd4b39;
@@ -82,3 +90,9 @@ a {
   .submit:hover,
   .OAuth:hover {
     font-size: 120%; }
+
+@media screen and (max-width: 600px) {
+  .outer-container {
+    left: 0%;
+    right: 0%;
+    width: 100%; } }

@@ -89,6 +89,7 @@ module.exports.signin = function (req, res) {
   console.log("signin controller reached ");
   return res.render("signin", {
     title: "Sign in",
+    layout : false
   });
 };
 

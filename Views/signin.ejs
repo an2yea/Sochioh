@@ -1,10 +1,33 @@
-<link rel="stylesheet" type="text/css" href="/css/signin.css" />
-<meta tag="viewport" content="width:device-width , initial-scale:1" />
-<script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
-<div style="background-image: linear-gradient(#C9D6FF,#E2E2E2); height: 200%;">
+<html>
+  <head>
+        <meta tag="viewport" content="width:device-width , initial-scale:1" />
+        <script src="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"></script>
+        <meta name="viewport" content="width:device-width , initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
+    />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="icon" type="img/jpeg" href="/images/favicon.png" />
+    <link rel="stylesheet" type="text/css" href="/css/signin.css" />
+</head>
+<body>
+
 <div class="outer-container" >
-  <h1>Sign In</h1>
-  <div class="inner-container">
+<nav>
+<div class="nav nav-pills nav-fill" role='tablist' style="margin-top: 3%;">
+    <a class="nav-item" id="nav-signin-tab" data-toggle="tab" href="#sign-in" role="tab" aria-controls="sign-in" aria-selected="true"> Sign In </a>
+    <a class="nav-item" id="nav-signup-tab" data-toggle="tab" href="#sign-up" role="tab" aria-controls="sign-up" aria-selected="true"> Sign Up </a>
+
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="inner-container container tab-pane fade show active" id="sign-in"  role="tabpanel" aria-labelledby="sign-in">
+    <div class="forms">
     <form action="/users/create_session" method="POST">
       <input
         type="email"
@@ -15,15 +38,65 @@
       <input type="password" name="password" placeholder="password" required />
       <input type="submit" class="submit" value="Sign In" />
     </form>
-    <h2>----------OR ----------</h2>
-    <p>
+    <form>
       <a href="/users/auth/google">
         <button class="Oauth">
-          <i class="fa fa-google" aria-hidden="true"></i>Sign in Using Google
-        </button></a
+          <i class="fab fa-google"></i> &nbsp Sign in Using Google
+        </button></a>
+      </form>
+    </div>
+    
+    
+  </div>
+  <div class="inner-container tab-pane fade" id="sign-up" role="tabpanel" aria-labelledby="sign-up">
+    <div class="forms">
+    <form action="/users/create" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <input type="password" name="password" placeholder="Password" required />
+      <input
+        type="password"
+        name="confirm_password"
+        placeholder="Confirm password"
+        required
+      />
+      <input type="submit" value="Sign up" />
+    </form>
+    <!-- <h2>----------OR ----------</h2> -->
+    <p>
+      <a href="/users/auth/google"
+        ><button class="OAuth"><i class="fab fa-google"></i> &nbsp Sign Up Using Google</button></a
       >
-    <h3> <a href="/users/sign_up">CREATE NEW ACCOUNT </a></h3>
     </p>
+    </div>
   </div>
 </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+      <% if (flash.success && flash.success.length > 0){ %>
+        new Noty({
+           theme:'relax',
+           text: "<%= flash.success %>",
+           type : "success",
+           layout:"topRight",
+           timeout : 1500
+        }).show();
+      <% } %>
+      <% if (flash.error && flash.error.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.error %>",
+                    type: 'error',
+                    layout: 'topCenter',
+                    timeout: 1500
+
+                }).show();
+            <%} %>
+    </script>
+</body>
+
+</html>
