@@ -4,10 +4,10 @@
 
 <div id="outer">
   
-  <div class="scrollbar scrollbar-lady-lips" id="user-friends" style="overflow: scroll;">
+  <div class="row" id="user-friends" style="overflow: scroll;">
     <h4>Friends</h4>
     <% for ( u of all_users) { %>
-    <div class="friend">
+    <div class=" col-3 friend">
       <a href="/users/profile/<%= u.id %>"> 
         <li>
           <% if(u.avatar) {%>

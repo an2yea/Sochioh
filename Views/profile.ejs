@@ -3,6 +3,7 @@
 
 
 <div class="outer-container">
+
   <% if(profile_user.avatar) {%>
     <img src="<%= profile_user.avatar%>" alt="<%= profile_user.name %>" style="width:100; position: relative; left:40%;" />
   <%} else {%>
@@ -12,6 +13,7 @@
 
   <h1><%= profile_user.name %> </h1>
 <div class="inner-container">
+  <div class="forms">
 <% if (user.id == profile_user.id) { %>
 <form
   action="/users/update/<%= profile_user.id%>"
@@ -45,5 +47,6 @@
 <p><%= profile_user.name %></p>
 <p><%= profile_user.email %></p>
 <% } %>
+</div>
 </div>
 </div>
